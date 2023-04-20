@@ -18,6 +18,15 @@ export const CAKE_TESTNET = new ERC20Token(
   'https://pancakeswap.finance/',
 )
 
+export const FLAME = new ERC20Token(
+  ChainId.CORE,
+  '0xe3bacaa390bb3e80a497592e420c5c5ddcb94a3a',
+  18,
+  'FLAME',
+  'FlameFinance Token',
+  'https://flamefinance.org'
+)
+
 export const USDC_BSC = new ERC20Token(
   ChainId.BSC,
   '0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d',
@@ -106,18 +115,20 @@ export const BUSD_GOERLI = new ERC20Token(
   'https://www.paxos.com/busd/',
 )
 
-export const BUSD: Record<ChainId, ERC20Token> = {
-  [ChainId.ETHEREUM]: BUSD_ETH,
-  [ChainId.GOERLI]: BUSD_GOERLI,
-  [ChainId.BSC]: BUSD_BSC,
-  [ChainId.BSC_TESTNET]: BUSD_TESTNET,
-}
+
 
 export const CAKE = {
   [ChainId.BSC]: CAKE_MAINNET,
   [ChainId.BSC_TESTNET]: CAKE_TESTNET,
+  [ChainId.CORE]: FLAME,
 }
 
+export const BUSD = {
+  [ChainId.BSC]: BUSD_BSC,
+  [ChainId.CORE]: BUSD_ETH,
+  [ChainId.BSC_TESTNET]: BUSD_TESTNET
+
+}
 export const USDC = {
   [ChainId.BSC]: USDC_BSC,
   [ChainId.BSC_TESTNET]: USDC_TESTNET,

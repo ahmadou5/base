@@ -19,9 +19,9 @@ const NotFound = ({ statusCode = 404 }: { statusCode?: number }) => {
     <>
       <NextSeo title="404" />
       <StyledNotFound>
-        <LogoIcon width="64px" mb="8px" />
+        <img src="/images/flame/flame.png" width="64px" alt="logo" />
         <Heading scale="xxl">{statusCode}</Heading>
-        <Text mb="16px">{t("Oops, page not found.")}</Text>
+        <Text mb="16px">{t("Oops, page not found. Or Under Development")}</Text>
         <Link href="/" passHref>
           <Button as="a" scale="sm">
             {t("Back Home")}

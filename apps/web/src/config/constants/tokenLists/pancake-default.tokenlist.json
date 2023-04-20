@@ -19,6 +19,30 @@
       "logoURI": "https://tokens.pancakeswap.finance/images/symbol/bnb.png"
     },
     {
+      "name": "Wrapped CORE",
+      "symbol": "WCORE",
+      "address": "0x191E94fa59739e188dcE837F7f6978d84727AD01",
+      "chainId": 1116,
+      "decimals": 18,
+      "logoURI": "https://flamefinance.org/images/coreTokens/wcore.png"
+    },
+    {
+      "name": "Aicore Token",
+      "symbol": "AICORE",
+      "address": "0x7621c97683a3b0499ec156bd257e44175e793bb1",
+      "chainId": 1116,
+      "decimals": 18,
+      "logoURI": "https://flamefinance.org/images/coreTokens/aicore.png"
+    },
+    {
+      "name": "FlameFinance Token",
+      "symbol": "FLAME",
+      "address": "0xe3bacaa390bb3e80a497592e420c5c5ddcb94a3a",
+      "chainId": 1116,
+      "decimals": 18,
+      "logoURI": "https://flamefinance.org/images/coreTokens/flame.png"
+    },
+    {
       "name": "BUSD Token",
       "symbol": "BUSD",
       "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",

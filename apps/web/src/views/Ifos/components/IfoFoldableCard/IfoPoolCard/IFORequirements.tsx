@@ -61,19 +61,13 @@ const NotOkProfilePoints = ({ pointThreshold }) => {
 }
 
 const configCriterias = (pointThreshold: number, admissionProfile: string, t) => ({
-  isQualifiedNFT: {
-    OkIcon: OkNFTIcon,
-    okMsg: t('Eligible NFT avatar found!'),
-    notOkMsg: <NotOkNFT admissionProfile={admissionProfile} />,
-    NotOkIcon: AccountIcon,
-    name: t('Pancake Squad'),
-  },
-  isQualifiedPoints: {
+  
+  isQualifiedWhitelist: {
     OkIcon: OkProfilePointsIcon,
-    okMsg: t('Profile Points threshold met!'),
+    okMsg: t('Address is whitelisted!'),
     notOkMsg: <NotOkProfilePoints pointThreshold={pointThreshold} />,
     NotOkIcon: TeamBattleIcon,
-    name: t('Profile points'),
+    name: t('Whitelisted Address'),
   },
 })
 
@@ -131,6 +125,7 @@ export default function IFORequirements({ criterias, pointThreshold, admissionPr
             isOk={value}
             pointThreshold={pointThreshold}
             admissionProfile={admissionProfile}
+            
           />
         )
       })}

@@ -55,17 +55,14 @@ const ContributeButton: React.FC<React.PropsWithChildren<Props>> = ({ poolId, if
     <IfoGetTokenModal
       symbol={ifo.currency.symbol}
       address={ifo.currency.address}
-      imageSrc={`/images/tokens/${ifo.currency.address}.png`}
+      imageSrc={`/images/1116/tokens/${ifo.currency.address}.png`}
     />,
     false,
   )
 
-  const noNeedCredit = ifo.version >= 3.1 && poolId === PoolIds.poolBasic
+  const noNeedCredit = ifo.version >= 3.2 && poolId === PoolIds.poolBasic
 
   const isMaxCommitted =
-    (!noNeedCredit &&
-      walletIfoData.ifoCredit?.creditLeft &&
-      walletIfoData.ifoCredit?.creditLeft.isLessThanOrEqualTo(0)) ||
     (limitPerUserInLP.isGreaterThan(0) && amountTokenCommittedInLP.isGreaterThanOrEqualTo(limitPerUserInLP))
 
   const isDisabled = isPendingTx || isMaxCommitted || publicIfoData.status !== 'live'
@@ -76,7 +73,7 @@ const ContributeButton: React.FC<React.PropsWithChildren<Props>> = ({ poolId, if
       width="100%"
       disabled={isDisabled}
     >
-      {isMaxCommitted && publicIfoData.status === 'live' ? t('Max. Committed') : t('Commit CAKE')}
+      {isMaxCommitted && publicIfoData.status === 'live' ? t('Max. Committed') : t('Commit WCORE')}
     </Button>
   )
 }

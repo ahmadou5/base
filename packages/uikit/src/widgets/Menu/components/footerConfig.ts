@@ -7,25 +7,19 @@ export const footerLinks: (t: ContextApi["t"]) => FooterLinkType[] = (t) => [
     items: [
       {
         label: t("Contact"),
-        href: "https://docs.pancakeswap.finance/contact-us",
+        href: "/",
         isHighlighted: true,
       },
-      {
-        label: t("Brand"),
-        href: "https://docs.pancakeswap.finance/brand",
-      },
+     
       {
         label: t("Blog"),
-        href: "https://medium.com/pancakeswap",
+        href: "https://medium.com/@flamefinance",
       },
       {
         label: t("Community"),
-        href: "https://docs.pancakeswap.finance/contact-us/telegram",
+        href: "https://discord.gg/flamefinance",
       },
-      {
-        label: t("Litepaper"),
-        href: "https://v2litepaper.pancakeswap.finance/",
-      },
+     
     ],
   },
   {
@@ -33,15 +27,15 @@ export const footerLinks: (t: ContextApi["t"]) => FooterLinkType[] = (t) => [
     items: [
       {
         label: t("Customer Support"),
-        href: "https://docs.pancakeswap.finance/contact-us/customer-support",
+        href: "https://docs.flamefinance.org/contact-us/customer-support",
       },
       {
         label: t("Troubleshooting"),
-        href: "https://docs.pancakeswap.finance/help/troubleshooting",
+        href: "https://docs.flamefinance.org/help/troubleshooting",
       },
       {
         label: t("Guides"),
-        href: "https://docs.pancakeswap.finance/get-started",
+        href: "https://docs.flamefinance.org/get-started",
       },
     ],
   },
@@ -50,23 +44,16 @@ export const footerLinks: (t: ContextApi["t"]) => FooterLinkType[] = (t) => [
     items: [
       {
         label: "Github",
-        href: "https://github.com/pancakeswap",
+        href: "https://github.com/",
       },
       {
         label: t("Documentation"),
-        href: "https://docs.pancakeswap.finance",
+        href: "https://docs.flamefinance.org",
       },
-      {
-        label: t("Bug Bounty"),
-        href: "https://docs.pancakeswap.finance/code/bug-bounty",
-      },
-      {
-        label: t("Audits"),
-        href: "https://docs.pancakeswap.finance/help/faq#is-pancakeswap-safe-has-pancakeswap-been-audited",
-      },
+      
       {
         label: t("Careers"),
-        href: "https://docs.pancakeswap.finance/hiring/become-a-chef",
+        href: "https://docs.flamefinance.org/hiring/",
       },
     ],
   },

@@ -35,7 +35,7 @@ export const PageMeta: React.FC<React.PropsWithChildren> = () => {
     return null
   }
 
-  const { description, image } = { ...DEFAULT_META, ...pageMeta }
+  const { description, image } = {  ...pageMeta }
 
   return (
     <NextSeo

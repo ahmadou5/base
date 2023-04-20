@@ -26,6 +26,7 @@ const mappingNetwork: Record<number, string> = {
   1: 'eth-mainnet',
   56: 'bsc-mainnet',
   97: 'bsc-testnet',
+  1116: 'core'
 }
 
 const _binanceChainListener = async () =>
@@ -127,7 +128,7 @@ export class BinanceWalletConnector extends InjectedConnector {
             name: `Chain ${id}`,
             network: `${id}`,
             nativeCurrency: { decimals: 18, name: 'BNB', symbol: 'BNB' },
-            rpcUrls: { default: { http: [''] } },
+            rpcUrls: { default: { http: [''] }, public : { http: ['']} },
           }
         )
       } catch (error) {

@@ -7,7 +7,7 @@ import IfoPoolVaultCard from './IfoPoolVaultCard'
 import IfoQuestions from './IfoQuestions'
 
 const IfoStepBackground = styled(Box)`
-  background: ${({ theme }) => theme.colors.gradientBubblegum};
+  background: ${({ theme }) => theme.colors.primary3D};
 `
 
 interface TypeProps {
@@ -22,7 +22,7 @@ const IfoContainer: React.FC<React.PropsWithChildren<TypeProps>> = ({ ifoSection
     <IfoLayout id="current-ifo" py={['24px', '24px', '40px']}>
       <Container>
         <IfoLayoutWrapper>
-          <IfoPoolVaultCard />
+          <IfoPoolVaultCard/>
           {ifoSection}
         </IfoLayoutWrapper>
       </Container>
@@ -32,7 +32,7 @@ const IfoContainer: React.FC<React.PropsWithChildren<TypeProps>> = ({ ifoSection
       <Container>
         <IfoQuestions />
         <LinkExternal
-          href="https://docs.pancakeswap.finance/contact-us/business-partnerships#ifos-token-sales"
+          href="https://"
           mx="auto"
           mt="16px"
         >

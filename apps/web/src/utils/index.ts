@@ -5,7 +5,7 @@ import { AddressZero } from '@ethersproject/constants'
 import { Contract } from '@ethersproject/contracts'
 import type { Provider } from '@ethersproject/providers'
 import { ChainId, Currency } from '@pancakeswap/sdk'
-import { bsc } from 'wagmi/chains'
+import { bsc, bscTestnet } from 'wagmi/chains'
 import memoize from 'lodash/memoize'
 import { TokenAddressMap } from '@pancakeswap/token-lists'
 import { chains } from './wagmi'
@@ -24,9 +24,9 @@ export function getBlockExploreLink(
   type: 'transaction' | 'token' | 'address' | 'block' | 'countdown',
   chainIdOverride?: number,
 ): string {
-  const chainId = chainIdOverride || ChainId.BSC
+  const chainId = chainIdOverride || ChainId.CORE
   const chain = chains.find((c) => c.id === chainId)
-  if (!chain) return bsc.blockExplorers.default.url
+  if (!chain) return bscTestnet.blockExplorers.default.url
   switch (type) {
     case 'transaction': {
       return `${chain.blockExplorers.default.url}/tx/${data}`

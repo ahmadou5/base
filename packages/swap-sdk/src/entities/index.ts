@@ -1,5 +1,6 @@
 export { ERC20Token } from './token'
 export * from './pair'
 export * from './route'
-export * from './trade'
+export  {Trade} from './trade'
 export * from './native'
+export * from './trade'

@@ -1,7 +1,7 @@
 import { BinanceWalletConnector } from '@pancakeswap/wagmi/connectors/binanceWallet'
 import { BloctoConnector } from '@pancakeswap/wagmi/connectors/blocto'
 import { TrustWalletConnector } from '@pancakeswap/wagmi/connectors/trustWallet'
-import { bsc, bscTestnet, goerli, mainnet } from 'wagmi/chains'
+import { bscTestnet } from 'wagmi/chains'
 import { configureChains, createClient } from 'wagmi'
 import memoize from 'lodash/memoize'
 import { CoinbaseWalletConnector } from 'wagmi/connectors/coinbaseWallet'
@@ -12,7 +12,7 @@ import { LedgerConnector } from 'wagmi/connectors/ledger'
 import { jsonRpcProvider } from 'wagmi/providers/jsonRpc'
 import { SafeConnector } from './safeConnector'
 
-const CHAINS = [bsc, mainnet, bscTestnet, goerli]
+const CHAINS = [ bscTestnet]
 
 const getNodeRealUrl = (networkName: string) => {
   let host = null
@@ -46,11 +46,11 @@ const getNodeRealUrl = (networkName: string) => {
 export const { provider, chains } = configureChains(CHAINS, [
   jsonRpcProvider({
     rpc: (chain) => {
-      if (!!process.env.NEXT_PUBLIC_NODE_PRODUCTION && chain.id === bsc.id) {
-        return { http: process.env.NEXT_PUBLIC_NODE_PRODUCTION }
+      if (!!process.env.NEXT_PUBLIC_NODE_PRODUCTION && chain.id === bscTestnet.id) {
+        return { http: 'https://rpc.coredao.org/' }
       }
-      if (process.env.NODE_ENV === 'test' && chain.id === mainnet.id) {
-        return { http: 'https://cloudflare-eth.com' }
+      if (process.env.NODE_ENV === 'test' && chain.id === bscTestnet.id) {
+        return { http: 'https://rpc.coredao.org/' }
       }
 
       return getNodeRealUrl(chain.network) || { http: chain.rpcUrls.default.http[0] }

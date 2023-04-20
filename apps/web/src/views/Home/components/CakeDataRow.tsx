@@ -1,6 +1,6 @@
 import { Flex, Heading, Skeleton, Text, Balance } from '@pancakeswap/uikit'
 import cakeAbi from 'config/abi/cake.json'
-import { bscTokens } from '@pancakeswap/tokens'
+import {  coreTokens } from '@pancakeswap/tokens'
 import { useTranslation } from '@pancakeswap/localization'
 import { useIntersectionObserver } from '@pancakeswap/hooks'
 import { useEffect, useState } from 'react'
@@ -62,7 +62,7 @@ const Grid = styled.div`
   }
 `
 
-const emissionsPerBlock = 9.9
+const emissionsPerBlock = 0.0
 
 /**
  * User (Planet Finance) built a contract on top of our original manual CAKE pool,
@@ -88,10 +88,10 @@ const CakeDataRow = () => {
   } = useSWR(
     loadData ? ['cakeDataRow'] : null,
     async () => {
-      const totalSupplyCall = { abi: cakeAbi, address: bscTokens.cake.address, name: 'totalSupply' }
+      const totalSupplyCall = { abi: cakeAbi, address: coreTokens.flame.address, name: 'totalSupply' }
       const burnedTokenCall = {
         abi: cakeAbi,
-        address: bscTokens.cake.address,
+        address: coreTokens.flame.address ,
         name: 'balanceOf',
         params: ['0x000000000000000000000000000000000000dEaD'],
       }
@@ -152,7 +152,7 @@ const CakeDataRow = () => {
       <StyledColumn noMobileBorder style={{ gridArea: 'c' }}>
         <Text color="textSubtle">{t('Max Supply')}</Text>
 
-        <Balance decimals={0} lineHeight="1.1" fontSize="24px" bold value={750000000} />
+        <Balance decimals={0} lineHeight="1.1" fontSize="24px" bold value={100000000} />
       </StyledColumn>
       <StyledColumn noDesktopBorder style={{ gridArea: 'd' }}>
         <Text color="textSubtle">{t('Market cap')}</Text>

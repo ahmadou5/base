@@ -6,7 +6,7 @@ import Image from 'next/legacy/image'
 import { ChainId } from '@pancakeswap/sdk'
 import { useActiveChainId } from 'hooks/useActiveChainId'
 import styled, { keyframes } from 'styled-components'
-import bunnyImage from '../../../../public/images/home/lunar-bunny/astronaut-bunny.png'
+import bunnyImage from '../../../../public/images/flame/flame.png'
 import CompositeImage, { CompositeImageProps } from './CompositeImage'
 import { SlideSvgDark, SlideSvgLight } from './SlideSvg'
 
@@ -80,14 +80,7 @@ const StarsWrapper = styled.div`
   }
 `
 
-const starsImage: CompositeImageProps = {
-  path: '/images/home/lunar-bunny/',
-  attributes: [
-    { src: 'star-l', alt: '3D Star' },
-    { src: 'star-r', alt: '3D Star' },
-    { src: 'star-top-r', alt: '3D Star' },
-  ],
-}
+
 
 const Hero = () => {
   const { t } = useTranslation()
@@ -128,10 +121,10 @@ const Hero = () => {
       >
         <Flex flex="1" flexDirection="column">
           <Heading scale="xxl" color="secondary" mb="24px">
-            {t('The moon is made of pancakes.')}
+            {t('#1 Dex On Core Chain Ecosystem FlameFinance.')}
           </Heading>
           <Heading scale="md" mb="24px">
-            {t('Trade, earn, and win crypto on the most popular decentralized platform in the galaxy.')}
+            {t('The Most Promising Decentralised Protocol On Core Chain, FlameFinance Uses and Utilize The Secured, Scalable and Decentralised Habits of Core Blockchain to build the most trusted, secured, fast and gas optimized Decentralised open and safe Marketplace for Core Chain Community.')}
           </Heading>
           <Flex>
             {!account && <ConnectWalletButton mr="8px" />}
@@ -151,7 +144,7 @@ const Hero = () => {
             <Image src={bunnyImage} priority placeholder="blur" alt={t('Lunar bunny')} />
           </BunnyWrapper>
           <StarsWrapper>
-            <CompositeImage {...starsImage} />
+            
           </StarsWrapper>
         </Flex>
       </Flex>

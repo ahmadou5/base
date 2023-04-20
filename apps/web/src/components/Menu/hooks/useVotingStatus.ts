@@ -4,19 +4,32 @@ import request, { gql } from 'graphql-request'
 import { SNAPSHOT_API } from 'config/constants/endpoints'
 import { PANCAKE_SPACE, ADMINS } from 'views/Voting/config'
 
-export const getCoreProposal = async (type: ProposalState): Promise<Proposal[]> => {
-  const response = await request(
+export const getCoreProposal = async (type: ProposalState ): Promise<Proposal[]> => {
+  const response = await request< { proposals: Proposal[] }>(
     SNAPSHOT_API,
     gql`
       query getProposals($first: Int!, $skip: Int!, $state: String!, $admins: [String]!) {
         proposals(first: $first, skip: $skip, where: { author_in: $admins, space_in: "${PANCAKE_SPACE}", state: $state }) {
           id
+          title
+          body
+          choices
+          start
+          end
+          snapshot
+          state
+          author
+          space
+          strategies {
+            name
+            params
+          }
         }
       }
     `,
     { first: 1, skip: 0, state: type, admins: ADMINS },
   )
-  return response.proposals
+  return response?.proposals || []
 }
 
 export const useVotingStatus = () => {

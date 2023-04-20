@@ -13,7 +13,7 @@ import {
   TelegramIcon,
   FlexGap,
 } from '@pancakeswap/uikit'
-import { bscTokens } from '@pancakeswap/tokens'
+import { coreTokens } from '@pancakeswap/tokens'
 import { useTranslation } from '@pancakeswap/localization'
 import { PublicIfoData } from 'views/Ifos/types'
 import { Ifo } from 'config/constants/types'
@@ -97,44 +97,18 @@ const IfoAchievement: React.FC<React.PropsWithChildren<Props>> = ({ ifo, publicI
     <Container p="16px" pb="32px">
       <AchievementFlex isFinished={publicIfoData.status === 'finished'} alignItems="flex-start" flex={1}>
         <Image
-          src={`/images/achievements/ifo-${tokenName}.svg`}
+          src={`/images/achievements/ifo-${tokenName}.png`}
           fallbackSrc="/images/achievements/ifo-placeholder-bun.png"
           width={56}
           height={56}
           mr="8px"
         />
         <Flex flexDirection="column" ml="8px">
-          <Text color="secondary" fontSize="12px">
-            {`${t('Achievement')}:`}
-          </Text>
-          <Flex>
-            <Text bold mr="8px" lineHeight={1.2}>
-              {t('IFO Shopper: %title%', { title: campaignTitle })}
-              <InlinePrize alignItems="center" ml="8px">
-                <PrizeIcon color="textSubtle" width="16px" mr="4px" />
-                <Text lineHeight={1.2} color="textSubtle">
-                  {publicIfoData.numberPoints}
-                </Text>
-              </InlinePrize>
-            </Text>
-          </Flex>
-          {publicIfoData.currencyPriceInUSD.gt(0) ? (
-            <Text color="textSubtle" fontSize="12px">
-              {t('Commit ~%amount% %symbol% in total to earn!', {
-                amount: minLpForAchievement,
-                symbol: ifo.currency === bscTokens.cake ? 'CAKE' : 'LP',
-              })}
-            </Text>
-          ) : (
-            <Skeleton minHeight={18} width={80} />
-          )}
           <FlexGap gap="16px" pt="24px" pl="4px">
             <Link external href={projectUrl}>
               <LanguageIcon color="textSubtle" />
             </Link>
-            <Link external href={ifo.articleUrl}>
-              <ProposalIcon color="textSubtle" />
-            </Link>
+            
             <Link external href={getBlockExploreLink(ifo.address, 'address')}>
               <SmartContractIcon color="textSubtle" />
             </Link>

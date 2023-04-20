@@ -80,7 +80,7 @@ const getTotalWonMarket = (market, tokenSymbol) => {
 }
 
 export const getTotalWon = async (): Promise<{ totalWonBNB: number; totalWonCAKE: number }> => {
-  const [{ market: BNBMarket, market: CAKEMarket }] = await Promise.all([
+  const [{ market: BNBMarket, market: CAKEMarket }]: any = await Promise.all([
     request(
       GRAPH_API_PREDICTION_BNB,
       gql`
@@ -120,7 +120,7 @@ export const getBetHistory = async (
   api: string,
   tokenSymbol: string,
 ): Promise<Array<BetResponseBNB | BetResponseCAKE>> => {
-  const response = await request(
+  const response: any = await request(
     api,
     gql`
       query getBetHistory($first: Int!, $skip: Int!, $where: Bet_filter) {
@@ -146,7 +146,7 @@ export const getLedgerData = async (account: string, epochs: number[], address: 
     name: 'ledger',
     params: [epoch, account],
   }))
-  const response = await multicallv2<PredictionsLedgerResponse[]>({ abi: predictionsAbi, calls: ledgerCalls })
+  const response: any = await multicallv2<PredictionsLedgerResponse[]>({ abi: predictionsAbi, calls: ledgerCalls })
   return response
 }
 
@@ -184,7 +184,7 @@ export const getPredictionUsers = async (
   tokenSymbol: string,
 ): Promise<UserResponse<BetResponse>[]> => {
   const { first, skip, where, orderBy, orderDir } = { ...defaultPredictionUserOptions, ...options }
-  const response = await request(
+  const response: any = await request(
     api,
     gql`
       query getUsers($first: Int!, $skip: Int!, $where: User_filter, $orderBy: User_orderBy, $orderDir: OrderDirection) {
@@ -203,7 +203,7 @@ export const getPredictionUser = async (
   api: string,
   tokenSymbol: string,
 ): Promise<UserResponse<BetResponse>> => {
-  const response = await request(
+  const response: any = await request(
     api,
     gql`
       query getUser($id: ID!) {
@@ -270,7 +270,7 @@ export const getRoundsData = async (epochs: number[], address: string): Promise<
     name: 'rounds',
     params: [epoch],
   }))
-  const response = await multicallv2<PredictionsRoundsResponse[]>({ abi: predictionsAbi, calls })
+  const response: any = await multicallv2<PredictionsRoundsResponse[]>({ abi: predictionsAbi, calls })
   return response
 }
 

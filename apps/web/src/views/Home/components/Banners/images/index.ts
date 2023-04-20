@@ -13,6 +13,7 @@ import Aptos from './Aptos.png'
 import AptosXPancakeSwap from './AptosXPancakeSwap.png'
 import trustwalletBg from './trustwalletBg.png'
 import trustwalletBunny from './trustwalletBunny.png'
+import core from './1116.png'
 
 export {
   lotteryImage,
@@ -30,4 +31,5 @@ export {
   AptosXPancakeSwap,
   trustwalletBg,
   trustwalletBunny,
+  core,
 }

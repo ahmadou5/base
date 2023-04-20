@@ -4,6 +4,7 @@ import { ERC20Token } from './entities/token'
 export enum ChainId {
   ETHEREUM = 1,
   GOERLI = 5,
+  CORE = 1116,
   BSC = 56,
   BSC_TESTNET = 97,
 }
@@ -15,20 +16,25 @@ export const FACTORY_ADDRESS = '0xcA143Ce32Fe78f1f7019d7d551a6402fC5350c73'
 
 const FACTORY_ADDRESS_ETH = '0x1097053Fd2ea711dad45caCcc45EfF7548fCB362'
 
+const FACTORY_ADDRESS_CORE = '0x967e19c9a147d7edb5cc3bbdd91be77a15d237e2'
+
 export const FACTORY_ADDRESS_MAP: Record<number, string> = {
   [ChainId.ETHEREUM]: FACTORY_ADDRESS_ETH,
   [ChainId.GOERLI]: FACTORY_ADDRESS_ETH,
   [ChainId.BSC]: FACTORY_ADDRESS,
+  [ChainId.CORE] : FACTORY_ADDRESS_CORE,
   [ChainId.BSC_TESTNET]: '0x6725f303b657a9451d8ba641348b6761a6cc7a17',
 }
 export const INIT_CODE_HASH = '0x00fb7f630766e6a796048ea87d01acd3068e8ff67d078148a3fa3f4a84f69bd5'
-
+const INIT_CODE_HASH_CORE = '0xa43381778131c9eede54628e4d34241a3dbb6200aa569ed3810fe8b7bdf07f83'
 const INIT_CODE_HASH_ETH = '0x57224589c67f3f30a6b0d7a1b54cf3153ab84563bc609ef41dfb34f8b2974d2d'
 export const INIT_CODE_HASH_MAP: Record<number, string> = {
   [ChainId.ETHEREUM]: INIT_CODE_HASH_ETH,
   [ChainId.GOERLI]: INIT_CODE_HASH_ETH,
   [ChainId.BSC]: INIT_CODE_HASH,
   [ChainId.BSC_TESTNET]: '0xd0d4c4cd0848c93cb4fd1f498d7013ee6bfb25783ea21593d5834f5d250ece66',
+  [ChainId.CORE]: INIT_CODE_HASH_CORE,
+  
 }
 
 export const WETH9 = {
@@ -48,6 +54,18 @@ export const WETH9 = {
     'Wrapped Ether',
     'https://weth.io'
   ),
+}
+
+export const WCORE = {
+  [ChainId.CORE]: new ERC20Token(
+    ChainId.CORE,
+    '0x191e94fa59739e188dce837f7f6978d84727ad01',
+    18,
+    'WCORE',
+    'Wrapped Core',
+    'https://coredao.org/'
+  ),
+  
 }
 
 export const WBNB = {
@@ -82,6 +100,7 @@ export const WNATIVE: Record<number, ERC20Token> = {
   [ChainId.GOERLI]: WETH9[ChainId.GOERLI],
   [ChainId.BSC]: WBNB[ChainId.BSC],
   [ChainId.BSC_TESTNET]: WBNB[ChainId.BSC_TESTNET],
+  [ChainId.CORE]: WCORE[ChainId.CORE]
 }
 
 export const NATIVE: Record<
@@ -99,6 +118,7 @@ export const NATIVE: Record<
     symbol: 'BNB',
     decimals: 18,
   },
+  [ChainId.CORE]: {name: 'Core', symbol: 'CORE', decimals: 18 },
   [ChainId.BSC_TESTNET]: {
     name: 'Binance Chain Native Token',
     symbol: 'tBNB',

@@ -30,7 +30,7 @@ const transformProfileResponse = (
 
 export const getUsername = async (address: string): Promise<string> => {
   try {
-    const response = await fetch(`${API_PROFILE}/api/users/${address.toLowerCase()}`)
+    const response: any = await fetch(`${API_PROFILE}/api/users/${address.toLowerCase()}`)
 
     if (!response.ok) {
       return ''

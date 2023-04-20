@@ -17,11 +17,11 @@ const IfoPoolVaultCard = () => {
 
   return (
     <Flex width="100%" maxWidth={400} alignItems="center" flexDirection="column">
-      {isSmallerThanXl ? (
+      {/* {isSmallerThanXl ? (
         <IfoPoolVaultCardMobile pool={cakePool} />
       ) : (
         <CakeVaultCard pool={cakePool} showSkeleton={false} showStakedOnly={false} showICake />
-      )}
+      )} */}
       <IfoVesting pool={cakePool} />
     </Flex>
   )

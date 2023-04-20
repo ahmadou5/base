@@ -35,7 +35,7 @@ export const earnSectionData = (t: TranslateFunction): SalesSectionProps => ({
     external: false,
   },
   secondaryButton: {
-    to: 'https://docs.pancakeswap.finance/products/yield-farming',
+    to: 'https://docs.flamefinance.org/products/yield-farming',
     text: t('Learn'),
     external: true,
   },
@@ -50,29 +50,27 @@ export const earnSectionData = (t: TranslateFunction): SalesSectionProps => ({
 })
 
 export const cakeSectionData = (t: TranslateFunction): SalesSectionProps => ({
-  headingText: t('CAKE makes our world go round.'),
+  headingText: t('Flame'),
   bodyText: t(
-    'CAKE token is at the heart of the PancakeSwap ecosystem. Buy it, win it, farm it, spend it, stake it... heck, you can even vote with it!',
+    'Flame is the Native Token of FlameFinance Ecosystem. Light Your Portfolio With Flame.',
   ),
   reverse: false,
   primaryButton: {
-    to: '/swap?outputCurrency=0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82&chainId=56',
-    text: t('Buy CAKE'),
+    to: '/swap?chain=core&outputCurrency=CORE&inputCurrency=0xe3bacaA390bB3E80A497592E420c5C5dDCb94a3a',
+    text: t('Buy Flame'),
     external: false,
   },
   secondaryButton: {
-    to: 'https://docs.pancakeswap.finance/tokenomics/cake',
+    to: 'https://docs.flamefinance.org/tokenomics/flame',
     text: t('Learn'),
     external: true,
   },
 
   images: {
-    path: '/images/home/cake/',
+    path: '/images/flame/',
     attributes: [
-      { src: 'bottom-right', alt: t('Small 3d pancake') },
-      { src: 'top-right', alt: t('Small 3d pancake') },
-      { src: 'coin', alt: t('CAKE token') },
-      { src: 'top-left', alt: t('Small 3d pancake') },
+      
+      { src: 'ftoken', alt: t('Flame token') },
     ],
   },
 })

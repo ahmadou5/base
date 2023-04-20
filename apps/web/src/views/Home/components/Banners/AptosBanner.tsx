@@ -2,7 +2,7 @@ import { useTranslation } from '@pancakeswap/localization'
 import { Button, Text, useMatchBreakpoints, Box, OpenNewIcon } from '@pancakeswap/uikit'
 import Image from 'next/legacy/image'
 import styled from 'styled-components'
-import { Aptos, AptosXPancakeSwap } from './images'
+import { core } from './images'
 import * as S from './Styled'
 
 const RightWrapper = styled.div`
@@ -54,28 +54,28 @@ const AptosBanner = () => {
       <S.Inner>
         <S.LeftWrapper>
           <Box marginTop="3px">
-            <Image src={AptosXPancakeSwap} alt="aptosXPancakeSwapImage" width={211} height={18} placeholder="blur" />
+            {/* <Image src={AptosXPancakeSwap} alt="aptosXPancakeSwapImage" width={211} height={18} placeholder="blur" /> */}
           </Box>
-          <AptosTitle>{t('Hello Aptos Project Teams!')}</AptosTitle>
+          <AptosTitle>{t('Hello CoreDao Teams!')}</AptosTitle>
 
           <Button
             minHeight="48px"
             onClick={() =>
-              window?.open('https://docs.pancakeswap.finance/aptos-deployment', '_blank', 'noopener noreferrer')
+              window?.open('https://coredao.org')
             }
           >
             <Text color="invertedContrast" bold fontSize="16px" mr="4px">
-              👋 {t('Get in Touch')}
+              {t('Explore CoreDao')}
             </Text>
             <OpenNewIcon color="invertedContrast" />
           </Button>
         </S.LeftWrapper>
         <RightWrapper>
           <Image
-            src={Aptos}
+            src={core}
             alt="aptosImage"
-            width={isMobile ? 1100 : 930}
-            height={isMobile ? 250 : 231}
+            width={isMobile ? 180 : 231}
+            height={isMobile ? 180 : 231}
             placeholder="blur"
           />
         </RightWrapper>

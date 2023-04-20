@@ -26,10 +26,10 @@ const IndexPage = ({ totalTx30Days, addressCount30Days, tvl }) => {
 }
 
 // Values fetched from TheGraph and BitQuery jan 24, 2022
-const txCount = 54780336
-const addressCount = 4425459
+const txCount = 0
+const addressCount = 0
 
-const tvl = 6082955532.115718
+const tvl = 0
 
 export const getStaticProps: GetStaticProps = async () => {
   const totalTxQuery = gql`
@@ -63,12 +63,12 @@ export const getStaticProps: GetStaticProps = async () => {
     })
 
     if (
-      totalTx?.pancakeFactory?.totalTransactions &&
-      totalTx30DaysAgo?.pancakeFactory?.totalTransactions &&
-      parseInt(totalTx.pancakeFactory.totalTransactions) > parseInt(totalTx30DaysAgo.pancakeFactory.totalTransactions)
+      (totalTx as { pancakeFactory: { totalTransactions: string } })?.pancakeFactory?.totalTransactions &&
+      (totalTx30DaysAgo as { pancakeFactory: { totalTransactions: string } })?.pancakeFactory?.totalTransactions &&
+      parseInt((totalTx as { pancakeFactory: { totalTransactions: string } }).pancakeFactory.totalTransactions) > parseInt((totalTx30DaysAgo as { pancakeFactory: { totalTransactions: string } }).pancakeFactory.totalTransactions)
     ) {
       results.totalTx30Days =
-        parseInt(totalTx.pancakeFactory.totalTransactions) - parseInt(totalTx30DaysAgo.pancakeFactory.totalTransactions)
+        parseInt((totalTx as { pancakeFactory: { totalTransactions: string } })?.pancakeFactory?.totalTransactions) - parseInt((totalTx30DaysAgo as { pancakeFactory: { totalTransactions: string } })?.pancakeFactory?.totalTransactions)
     }
   } catch (error) {
     if (process.env.NODE_ENV === 'production') {
@@ -78,17 +78,24 @@ export const getStaticProps: GetStaticProps = async () => {
 
   const usersQuery = gql`
     query userCount($since: ISO8601DateTime, $till: ISO8601DateTime) {
-      ethereum(network: bsc) {
+      ethereum(network: Core) {
         dexTrades(exchangeName: { in: ["Pancake", "Pancake v2"] }, date: { since: $since, till: $till }) {
           count(uniq: senders)
         }
       }
     }
   `
-
+  
   if (process.env.BIT_QUERY_HEADER) {
     try {
-      const result = await bitQueryServerClient.request(usersQuery, {
+      interface BitQueryResult {
+        ethereum?: {
+          dexTrades?: {
+            count?: number
+          }[]
+        }
+      }
+      const result = await bitQueryServerClient.request<BitQueryResult>(usersQuery, {
         since: days30Ago.toISOString(),
         till: new Date().toISOString(),
       })
@@ -103,7 +110,12 @@ export const getStaticProps: GetStaticProps = async () => {
   }
 
   try {
-    const result = await infoServerClient.request(gql`
+    interface TvLResult {
+      pancakeFactories: {
+        totalLiquidityUSD: string
+      }[]
+    }
+    const result = await infoServerClient.request<TvLResult>(gql`
       query tvl {
         pancakeFactories(first: 1) {
           totalLiquidityUSD

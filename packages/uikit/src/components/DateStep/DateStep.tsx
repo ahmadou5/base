@@ -70,7 +70,7 @@ const DateStep: React.FC<React.PropsWithChildren<DateStepProps>> = ({ index, ste
   if (isActive) {
     return (
       <ActiveWrapper>
-        <LogoIcon />
+        <img src="/images/flame/flame.png" width='35px' height='35px' />
         <StyledText textTransform="uppercase">{stepText}</StyledText>
         <StyledDateText>{dateText}</StyledDateText>
       </ActiveWrapper>

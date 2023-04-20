@@ -4,7 +4,7 @@ import { BSC_BLOCK_TIME } from 'config'
 import round from 'lodash/round'
 import ifoV2Abi from 'config/abi/ifoV2.json'
 import ifoV3Abi from 'config/abi/ifoV3.json'
-import { bscTokens } from '@pancakeswap/tokens'
+import { bscTokens, coreTokens } from '@pancakeswap/tokens'
 import { Ifo, IfoStatus } from 'config/constants/types'
 
 import { useLpTokenPrice, usePriceCakeBusd } from 'state/farms/hooks'
@@ -44,7 +44,7 @@ const useGetPublicIfoData = (ifo: Ifo): PublicIfoData => {
   const { address, version, plannedStartTime } = ifo
   const cakePriceUsd = usePriceCakeBusd()
   const lpTokenPriceInUsd = useLpTokenPrice(ifo.currency.symbol)
-  const currencyPriceInUSD = ifo.currency === bscTokens.cake ? cakePriceUsd : lpTokenPriceInUsd
+  const currencyPriceInUSD = ifo.currency === coreTokens.flame ? cakePriceUsd : lpTokenPriceInUsd
 
   const [state, setState] = useState({
     isInitialized: false,

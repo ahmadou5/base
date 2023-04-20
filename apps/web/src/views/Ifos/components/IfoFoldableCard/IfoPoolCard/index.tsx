@@ -53,12 +53,14 @@ export const cardConfig = (
     version: number
     needQualifiedPoints?: boolean
     needQualifiedNFT?: boolean
+    needQualifiedWhitelist?: boolean
   },
 ): CardConfigReturn => {
   switch (poolId) {
     case PoolIds.poolBasic:
       if (meta?.version >= 3.1) {
         const MSG_MAP = {
+          needQualifiedWhitelist: t('You Need To Be Whitelisted To Take Part'),
           needQualifiedNFT: t('Set PancakeSquad NFT as Pancake Profile avatar.'),
           needQualifiedPoints: t('Reach a certain Pancake Profile Points threshold.'),
         }
@@ -120,11 +122,12 @@ const SmallCard: React.FC<React.PropsWithChildren<IfoCardProps>> = ({
 
   const { admissionProfile, pointThreshold, vestingInformation } = publicIfoData[poolId]
 
-  const { needQualifiedNFT, needQualifiedPoints } = useMemo(() => {
+  const { needQualifiedNFT, needQualifiedPoints ,  needQualifiedWhitelist } = useMemo(() => {
     return ifo.version >= 3.1 && poolId === PoolIds.poolBasic
       ? {
           needQualifiedNFT: Boolean(admissionProfile),
           needQualifiedPoints: pointThreshold ? pointThreshold > 0 : false,
+          needQualifiedWhitelist: Boolean(account)
         }
       : {}
   }, [ifo.version, admissionProfile, pointThreshold, poolId])
@@ -133,6 +136,7 @@ const SmallCard: React.FC<React.PropsWithChildren<IfoCardProps>> = ({
     version: ifo.version,
     needQualifiedNFT,
     needQualifiedPoints,
+    needQualifiedWhitelist
   })
 
   const { hasActiveProfile, isLoading: isProfileLoading } = useProfile()
@@ -143,6 +147,7 @@ const SmallCard: React.FC<React.PropsWithChildren<IfoCardProps>> = ({
   const { isEligible, criterias } = useCriterias(walletIfoData[poolId], {
     needQualifiedNFT,
     needQualifiedPoints,
+    needQualifiedWhitelist,
   })
 
   const isVesting = useMemo(() => {

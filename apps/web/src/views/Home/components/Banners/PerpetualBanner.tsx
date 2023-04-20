@@ -61,23 +61,23 @@ const PerpetualBanner = () => {
     <S.Wrapper>
       <S.Inner>
         <S.LeftWrapper>
-          <S.StyledSubheading ref={headerRef}>{t('Perpetual Futures')}</S.StyledSubheading>
-          <Header width={['160px', '160px', 'auto']}>{t('Up to 100× Leverage')}</Header>
-          <Link href={perpetualUrl} external>
+          <S.StyledSubheading ref={headerRef}>{t('Token Listing')}</S.StyledSubheading>
+          <Header width={['160px', '160px', 'auto']}>{t('List Token on FlameFinance')}</Header>
+          <Link href='/add' >
             <Button>
               <Text color="invertedContrast" bold fontSize="16px" mr="4px">
-                {t('Trade Now')}
+                {t('List Now')}
               </Text>
               <ArrowForwardIcon color="invertedContrast" />
             </Button>
           </Link>
         </S.LeftWrapper>
         <RightWrapper>
-          {isDesktop ? (
+        {/*  {isDesktop ? (
             <Image src={perpetualImage} alt="PerpetualBanner" width={392} height={232} placeholder="blur" />
           ) : (
             <Image src={perpetualMobileImage} alt="PerpetualBanner" width={208} height={208} placeholder="blur" />
-          )}
+          )} */}
         </RightWrapper>
       </S.Inner>
     </S.Wrapper>

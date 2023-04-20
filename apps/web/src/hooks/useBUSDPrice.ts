@@ -10,6 +10,7 @@ import {
   WBNB,
   ERC20Token,
   WETH9,
+  WCORE,
 } from '@pancakeswap/sdk'
 import { FAST_INTERVAL } from 'config/constants'
 import { BUSD, CAKE, USDC } from '@pancakeswap/tokens'
@@ -147,16 +148,16 @@ export const usePriceByPairs = (currencyA?: Currency, currencyB?: Currency) => {
 }
 
 export const useBUSDCurrencyAmount = (currency?: Currency, amount?: number): number | undefined => {
-  const busdPrice = useBUSDPrice(currency?.chainId === ChainId.ETHEREUM ? undefined : currency)
+  const busdPrice = useBUSDPrice(currency?.chainId === ChainId.CORE ? undefined : currency)
   // we don't have too many AMM pools on ethereum yet, try to get it from api
   const { data } = useSWRImmutable(
-    amount && currency?.chainId === ChainId.ETHEREUM && ['fiat-price-ethereum', currency],
+    amount && currency?.chainId === ChainId.CORE && ['fiat-price-core', currency],
     async () => {
-      const address = currency.isToken ? currency.address : WETH9[ChainId.ETHEREUM].address
-      return fetch(`https://coins.llama.fi/prices/current/ethereum:${address}`) // <3 llama
+      const address = currency.isToken ? currency.address : WCORE[ChainId.CORE].address
+      return fetch(`https://coins.llama.fi/prices/current/core:${address}`) // <3 llama
         .then((res) => res.json())
         .then(
-          (res) => res?.coins?.[`ethereum:${address}`]?.confidence > 0.9 && res?.coins?.[`ethereum:${address}`]?.price,
+          (res) => res?.coins?.[`core:${address}`]?.confidence > 0.9 && res?.coins?.[`core:${address}`]?.price,
         )
     },
     {

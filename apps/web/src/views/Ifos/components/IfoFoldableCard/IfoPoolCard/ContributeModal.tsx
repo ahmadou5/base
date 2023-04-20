@@ -1,7 +1,7 @@
 import { MaxUint256 } from '@ethersproject/constants'
 import { parseUnits } from '@ethersproject/units'
 import { useTranslation } from '@pancakeswap/localization'
-import { bscTokens } from '@pancakeswap/tokens'
+import { bscTokens, coreTokens } from '@pancakeswap/tokens'
 import {
   BalanceInput,
   Box,
@@ -72,7 +72,7 @@ const ContributeModal: React.FC<React.PropsWithChildren<Props>> = ({
   const raisingTokenContractApprover = useERC20(currency.address)
   const { t } = useTranslation()
   const valueWithTokenDecimals = new BigNumber(value).times(DEFAULT_TOKEN_DECIMAL)
-  const label = currency === bscTokens.cake ? t('Max. CAKE entry') : t('Max. token entry')
+  const label = currency === coreTokens.flame ? t('Max. Flame entry') : t('Max. token entry')
 
   const { isApproving, isApproved, isConfirmed, isConfirming, handleApprove, handleConfirm } =
     useApproveConfirmTransaction({
@@ -117,7 +117,7 @@ const ContributeModal: React.FC<React.PropsWithChildren<Props>> = ({
       if (limitPerUserInLP.isGreaterThan(0)) {
         return limitPerUserInLP.minus(amountTokenCommittedInLP).isLessThanOrEqualTo(creditLeft)
           ? limitPerUserInLP.minus(amountTokenCommittedInLP)
-          : creditLeft
+          : limitPerUserInLP.minus(amountTokenCommittedInLP)
       }
     }
     return creditLeft
@@ -129,17 +129,17 @@ const ContributeModal: React.FC<React.PropsWithChildren<Props>> = ({
   }, [maximumTokenEntry, userCurrencyBalance])
 
   const basicTooltipContent = t(
-    'For the private sale, each eligible participant will be able to commit any amount of CAKE up to the maximum commit limit, which is published along with the IFO voting proposal.',
+    'For the private sale, each eligible participant will be able to commit any amount of WCORE up to the maximum commit limit, which is published along with the IFO voting proposal.',
   )
 
   const unlimitedToolipContent = (
     <Box>
-      <Text display="inline">{t('For the public sale, Max CAKE entry is capped by')} </Text>
+      <Text display="inline">{t('For the public sale, Max WCORE entry is capped by')} </Text>
       <Text bold display="inline">
         {t('the number of iCAKE.')}{' '}
       </Text>
       <Text display="inline">
-        {t('Lock more CAKE for longer durations to increase the maximum number of CAKE you can commit to the sale.')}
+        {t('Lock more FLAME for longer durations to increase the maximum number of FLAME you can commit to the sale.')}
       </Text>
     </Box>
   )
@@ -201,7 +201,7 @@ const ContributeModal: React.FC<React.PropsWithChildren<Props>> = ({
             >
               {valueWithTokenDecimals.isGreaterThan(userCurrencyBalance)
                 ? t('Insufficient Balance')
-                : t('Exceeded max CAKE entry')}
+                : t('Exceeded max WCORE entry')}
             </Text>
           )}
           <Text color="textSubtle" textAlign="right" fontSize="12px" mb="16px">

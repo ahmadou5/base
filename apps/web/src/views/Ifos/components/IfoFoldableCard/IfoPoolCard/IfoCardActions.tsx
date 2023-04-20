@@ -41,10 +41,10 @@ const IfoCardActions: React.FC<React.PropsWithChildren<Props>> = ({
     return <ConnectWalletButton width="100%" />
   }
 
-  if (!hasProfile) {
+  if (hasProfile) {
     return (
       <Button as={NextLinkFromReactRouter} to={`/profile/${account.toLowerCase()}`} width="100%">
-        {t('Activate your Profile')}
+        {t('You are Eligible to take part')}
       </Button>
     )
   }

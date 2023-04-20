@@ -102,14 +102,10 @@ const useGetWalletIfoData = (ifo: Ifo): WalletIfoData => {
     const ifov3Calls =
       version >= 3.1
         ? [
+            
             {
               address,
-              name: 'isQualifiedNFT',
-              params: [account],
-            },
-            {
-              address,
-              name: 'isQualifiedPoints',
+              name: 'isQualifiedWhitelist',
               params: [account],
             },
             version === 3.2 && {
@@ -140,8 +136,7 @@ const useGetWalletIfoData = (ifo: Ifo): WalletIfoData => {
     const [
       userInfo,
       amounts,
-      isQualifiedNFT,
-      isQualifiedPoints,
+      isQualifiedWhitelist,
       basicSchedule,
       unlimitedSchedule,
       basicReleasableAmount,
@@ -158,8 +153,8 @@ const useGetWalletIfoData = (ifo: Ifo): WalletIfoData => {
         refundingAmountInLP: new BigNumber(amounts[0][0][1].toString()),
         taxAmountInLP: new BigNumber(amounts[0][0][2].toString()),
         hasClaimed: userInfo[1][0],
-        isQualifiedNFT: isQualifiedNFT ? isQualifiedNFT[0] : false,
-        isQualifiedPoints: isQualifiedPoints ? isQualifiedPoints[0] : false,
+        
+        isQualifiedWhitelist: isQualifiedWhitelist ? isQualifiedWhitelist[0] : false,
         vestingReleased: basicSchedule ? new BigNumber(basicSchedule[0].released.toString()) : BIG_ZERO,
         vestingAmountTotal: basicSchedule ? new BigNumber(basicSchedule[0].amountTotal.toString()) : BIG_ZERO,
         isVestingInitialized: basicSchedule ? basicSchedule[0].isVestingInitialized : false,

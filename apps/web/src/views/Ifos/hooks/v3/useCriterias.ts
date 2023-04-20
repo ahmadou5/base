@@ -1,8 +1,9 @@
 import { useMemo } from 'react'
 
 const mapCriteriasToQualifications = {
-  needQualifiedNFT: 'isQualifiedNFT',
-  needQualifiedPoints: 'isQualifiedPoints',
+  
+  
+  needQualifiedWhitelist: 'isQualifiedWhitelist'
 }
 
 export default function useCriterias(userBasicPoolInfo, ifoCriterias) {

@@ -2,7 +2,7 @@ import { Button, Grid, Message, MessageText, Modal, Text } from '@pancakeswap/ui
 import { useLocalNetworkChain } from 'hooks/useActiveChainId'
 import { useTranslation } from '@pancakeswap/localization'
 import { useSwitchNetwork, useSwitchNetworkLocal } from 'hooks/useSwitchNetwork'
-import Image from 'next/image'
+//import Image from 'next/image'
 import useAuth from 'hooks/useAuth'
 import { useMenuItems } from 'components/Menu/hooks/useMenuItems'
 import { useRouter } from 'next/router'
@@ -37,13 +37,13 @@ export function UnsupportedNetworkModal({ pageSupportedChains }: { pageSupported
   )
 
   return (
-    <Modal title={t('Check your network')} hideCloseButton headerBackground="gradientCardHeader">
+    <Modal title={t('Check your network')} hideCloseButton headerBackground="primary">
       <Grid style={{ gap: '16px' }} maxWidth="336px">
         <Text>
           {t('Currently %feature% only supported in', { feature: typeof title === 'string' ? title : 'this page' })}{' '}
           {supportedMainnetChains?.map((c) => c.name).join(', ')}
         </Text>
-        <div style={{ textAlign: 'center' }}>
+        {/* <div style={{ textAlign: 'center' }}>
           <Image
             layout="fixed"
             width={194}
@@ -51,7 +51,7 @@ export function UnsupportedNetworkModal({ pageSupportedChains }: { pageSupported
             src="/images/check-your-network.png"
             alt="check your network"
           />
-        </div>
+  </div> */}
         <Message variant="warning">
           <MessageText>{t('Please switch your network to continue.')}</MessageText>
         </Message>

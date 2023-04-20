@@ -136,7 +136,7 @@ const CreateProposal = () => {
     updateValue(key, value)
   }
 
-  const options = useMemo(() => {
+  const options: any = useMemo(() => {
     return {
       hideIcons:
         account && ADMINS.includes(account.toLowerCase())
@@ -181,7 +181,7 @@ const CreateProposal = () => {
                 name="body"
                 onTextChange={handleEasyMdeChange}
                 value={body}
-                options={options}
+                options ={options}
                 required
               />
               {formErrors.body && fieldsState.body && <FormErrors errors={formErrors.body} />}

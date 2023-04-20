@@ -6,7 +6,7 @@ const useGetParticipants = (subgraphAddress: string): string[] => {
   useEffect(() => {
     const getParticipants = async () => {
       try {
-        const response = await request(
+        const response: any = await request(
           subgraphAddress,
           gql`
             query getTradingCompetitionParticipants {

@@ -50,13 +50,13 @@ const Footer: React.FC<
   helpUrl,
   externalText,
   externalLinkUrl,
-  helpImage = <Image src="https://cdn.pancakeswap.com/help/help.png" alt="Get some help" width={160} height={108} />,
+  helpImage = <Image src="https:flamefinance.org/logo.png" alt="Get some help" width={160} height={108} />,
 }) => {
   const { t } = useTranslation();
   const isSide = variant === "side";
   return (
     <Wrapper $isSide={isSide}>
-      {externalText && externalLinkUrl && (
+     {/* {externalText && externalLinkUrl && (
         <Flex flexDirection={isSide ? "column" : ["column", "column", "row"]} alignItems="center">
           <LinkExternal
             id="ercBridge"
@@ -87,7 +87,7 @@ const Footer: React.FC<
           </BubbleWrapper>
           {helpImage}
         </Flex>
-      )}
+      )} */}
     </Wrapper>
   );
 };

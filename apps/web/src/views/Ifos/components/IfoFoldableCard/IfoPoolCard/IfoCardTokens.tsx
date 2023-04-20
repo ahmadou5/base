@@ -21,7 +21,7 @@ import {
 import { useAccount } from 'wagmi'
 import { Token } from '@pancakeswap/sdk'
 import { Ifo, PoolIds } from 'config/constants/types'
-import { bscTokens } from '@pancakeswap/tokens'
+import { bscTokens, coreTokens } from '@pancakeswap/tokens'
 import { cakeBnbLpToken } from 'config/constants/ifo'
 import { PublicIfoData, WalletIfoData } from 'views/Ifos/types'
 import { useTranslation } from '@pancakeswap/localization'
@@ -135,7 +135,7 @@ const IfoCardTokens: React.FC<React.PropsWithChildren<IfoCardTokensProps>> = ({
   const { t } = useTranslation()
   const { targetRef, tooltip, tooltipVisible } = useTooltip(
     t(
-      'Sorry, you didn’t contribute enough CAKE to meet the minimum threshold. You didn’t buy anything in this sale, but you can still reclaim your CAKE.',
+      'Sorry, you didn’t contribute enough WCORE+ to meet the minimum threshold. You didn’t buy anything in this sale, but you can still reclaim your CAKE.',
     ),
     { placement: 'bottom' },
   )
@@ -166,8 +166,8 @@ const IfoCardTokens: React.FC<React.PropsWithChildren<IfoCardTokensProps>> = ({
     placement: 'bottom',
   })
 
-  const hasNFT = useMemo(() => {
-    const data = criterias.find((obj) => obj.type === 'isQualifiedNFT')
+  const isWhitelisted = useMemo(() => {
+    const data = criterias.find((obj) => obj.type === 'isQualifiedWhitelist')
     const userHasNFT = data?.value
     return userHasNFT
   }, [criterias])
@@ -190,16 +190,14 @@ const IfoCardTokens: React.FC<React.PropsWithChildren<IfoCardTokensProps>> = ({
 
     if (account && !hasProfile) {
       message = (
-        <Message my="24px" p="8px" variant="warning">
+        <Message my="24px" p="8px" variant="success">
           <Box>
             <MessageText display="inline">
               {publicIfoData.status === 'finished'
-                ? t('Activate PancakeSwap Profile to take part in next IFO‘s!')
-                : t('You need an active PancakeSwap Profile to take part in an IFO!')}
+                ? t('Yay Flamer The Sale Has come to an End if You Participate Claim Your token!')
+                : t('You Need to Be Whitelisted to take part in the IFO!')}
             </MessageText>{' '}
-            <MessageTextLink href="/ifo#ifo-how-to" color="#D67E0A" display="inline">
-              {t('How does it work?')} »
-            </MessageTextLink>
+           
           </Box>
         </Message>
       )
@@ -219,12 +217,13 @@ const IfoCardTokens: React.FC<React.PropsWithChildren<IfoCardTokensProps>> = ({
             criterias={criterias}
             admissionProfile={publicPoolCharacteristics?.admissionProfile}
             pointThreshold={publicPoolCharacteristics?.pointThreshold}
+            
           />
           {isEligible && (
             <Message mt="24px" p="8px" variant="success">
               <MessageText small display="inline">
-                {hasNFT
-                  ? t('Using eligible NFT for entry. Do not remove or edit your profile avatar before claiming.')
+                {isWhitelisted
+                  ? t('As You Participate on the Whitelist Campaign and You are succesfully Whitelisted.')
                   : t('You are eligible to participate in this Private Sale!')}
               </MessageText>
             </Message>
@@ -237,12 +236,10 @@ const IfoCardTokens: React.FC<React.PropsWithChildren<IfoCardTokensProps>> = ({
       getBalanceNumber(credit) === 0
     ) {
       message = (
-        <Message my="24px" p="8px" variant="danger">
+        <Message my="24px" p="8px" variant="success">
           <Box>
-            <MessageText display="inline">{t('You don’t have any iCAKE available for IFO public sale.')}</MessageText>{' '}
-            <MessageTextLink display="inline" fontWeight={700} href="/ifo#ifo-how-to" color="failure">
-              {t('How does it work?')} »
-            </MessageTextLink>
+            <MessageText display="inline">{t('You Can Take Part on the  Flame Public sale IF0')}</MessageText>{' '}
+            
           </Box>
         </Message>
       )
@@ -343,7 +340,7 @@ const IfoCardTokens: React.FC<React.PropsWithChildren<IfoCardTokensProps>> = ({
           {ifov31Msg || (
             <>
               <Text textAlign="center" fontSize="14px">
-                {t('To participate in the next IFO, lock some CAKE in the fixed-term staking CAKE pool!')}
+                {t('To participate in the next IFO, Wrap some Core')}
               </Text>
               <MessageTextLink href="/ifo#ifo-how-to" textAlign="center">
                 {t('How does it work?')} »

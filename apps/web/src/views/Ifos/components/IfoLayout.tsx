@@ -7,10 +7,10 @@ const IfoLayout = styled(Box)`
   }
 `
 export const IfoLayoutWrapper = styled(IfoLayout)`
-  column-gap: 32px;
+  column-gap: 320px;
   display: grid;
   grid-template-columns: 1fr;
-  align-items: flex-start;
+  align-items: flex-center;
 
   ${({ theme }) => theme.mediaQueries.xl} {
     grid-template-columns: minmax(300px, 1fr) minmax(462px, 2fr);
@@ -22,3 +22,4 @@ export const IfoLayoutWrapper = styled(IfoLayout)`
 `
 
 export default IfoLayout
+;

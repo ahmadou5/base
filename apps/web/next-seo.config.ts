@@ -1,19 +1,19 @@
 import { DefaultSeoProps } from 'next-seo'
 
 export const SEO: DefaultSeoProps = {
-  titleTemplate: '%s | PancakeSwap',
-  defaultTitle: 'PancakeSwap',
+  titleTemplate: '%s | FlameFinance',
+  defaultTitle: 'FlameFinance',
   description:
-    'Cheaper and faster than Uniswap? Discover PancakeSwap, the leading DEX on BNB Smart Chain (BSC) with the best farms in DeFi and a lottery for CAKE.',
+    'Cheaper and faster than Shadowswap? Discover your Gateway to DeFi on Core Chain (CORE).',
   twitter: {
     cardType: 'summary_large_image',
-    handle: '@PancakeSwap',
-    site: '@PancakeSwap',
+    handle: '@flamefinance',
+    site: '@flamefinance',
   },
   openGraph: {
-    title: '🥞 PancakeSwap - A next evolution DeFi exchange on BNB Smart Chain (BSC)',
+    title: ' FlameFinance - The Most Promising DeFi Protocol on Core Chain.',
     description:
-      'The most popular AMM on BSC by user count! Earn CAKE through yield farming or win it in the Lottery, then stake it in Syrup Pools to earn more tokens! Initial Farm Offerings (new token launch model pioneered by PancakeSwap), NFTs, and more, on a platform you can trust.',
-    images: [{ url: 'https://assets.pancakeswap.finance/web/og/hero.jpg' }],
+      '#1 Dex on Core Chain Trade, Swap, Burn and Earn Boosted Apy on the Most Promising DeFi Protocol on Core-Chain.',
+    images: [{ url: 'https://flamefinance.org/hero.jpg' }],
   },
 }

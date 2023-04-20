@@ -10,7 +10,19 @@ export enum SubgraphStatus {
   NOT_OK,
   UNKNOWN,
 }
-
+type GraphHealthResponse = {
+  indexingStatusForCurrentVersion: {
+    health: string
+    chains: {
+      chainHeadBlock: {
+        number: string
+      }
+      latestBlock: {
+        number: string
+      }
+    }[]
+  }
+}
 export type SubgraphHealthState = {
   status: SubgraphStatus
   currentBlock: number
@@ -35,8 +47,8 @@ const useSubgraphHealth = (subgraphName: string) => {
     (currentBlockNumber) => {
       const getSubgraphHealth = async () => {
         try {
-          const [{ indexingStatusForCurrentVersion }, currentBlock] = await Promise.all([
-            request(
+          const [{ indexingStatusForCurrentVersion  }, currentBlock] = await Promise.all([
+            request<GraphHealthResponse>(
               GRAPH_HEALTH,
               gql`
             query getNftMarketSubgraphHealth {

@@ -26,10 +26,7 @@ import Image from 'next/image'
 
 import { ChainLogo } from './Logo/ChainLogo'
 
-const AptosChain = {
-  id: 1,
-  name: 'Aptos',
-}
+
 
 const NetworkSelect = ({ switchNetwork, chainId }) => {
   const { t } = useTranslation()
@@ -54,24 +51,7 @@ const NetworkSelect = ({ switchNetwork, chainId }) => {
             </Text>
           </UserMenuItem>
         ))}
-      <UserMenuItem
-        key={`aptos-${AptosChain.id}`}
-        style={{ justifyContent: 'flex-start' }}
-        as="a"
-        target="_blank"
-        href="https://aptos.pancakeswap.finance/swap"
-      >
-        <Image
-          src="https://aptos.pancakeswap.finance/images/apt.png"
-          width={24}
-          height={24}
-          unoptimized
-          alt={`chain-aptos-${AptosChain.id}`}
-        />{' '}
-        <Text color="text" pl="12px">
-          {AptosChain.name}
-        </Text>
-      </UserMenuItem>
+      
     </>
   )
 }
@@ -92,10 +72,10 @@ const WrongNetworkSelect = ({ switchNetwork, chainId }) => {
     },
   )
   const { chain } = useNetwork()
-  const localChainId = useLocalNetworkChain() || ChainId.BSC
+  const localChainId = useLocalNetworkChain() || ChainId.CORE
   const [, setSessionChainId] = useSessionChainId()
 
-  const localChainName = chains.find((c) => c.id === localChainId)?.name ?? 'BSC'
+  const localChainName = chains.find((c) => c.id === localChainId)?.name ?? 'CORE'
 
   const [ref1, isHover] = useHover<HTMLButtonElement>()
 
@@ -123,7 +103,7 @@ const WrongNetworkSelect = ({ switchNetwork, chainId }) => {
       <UserMenuItem onClick={() => switchNetwork(localChainId)} style={{ justifyContent: 'flex-start' }}>
         <ChainLogo chainId={localChainId} />
         <Text pl="12px">{localChainName}</Text>
-      </UserMenuItem>
+      </UserMenuItem> 
       <Button mx="16px" my="8px" scale="sm" onClick={() => switchNetwork(localChainId)}>
         {t('Switch network in wallet')}
       </Button>
