@@ -1,6 +1,6 @@
 import { ChainId, JSBI, Percent, Token, WNATIVE } from '@pancakeswap/sdk'
 import { BigNumber } from '@ethersproject/bignumber'
-import { bscTokens, bscTestnetTokens, USDC, USDT,  WBTC_ETH, coreTokens } from '@pancakeswap/tokens'
+import { bscTokens, bscTestnetTokens, USDC, USDT,  WBTC_ETH, coreTokens, baseTokens } from '@pancakeswap/tokens'
 import { ChainMap, ChainTokenList } from './types'
 
 export const ROUTER_ADDRESS: ChainMap<string> = {
@@ -8,7 +8,8 @@ export const ROUTER_ADDRESS: ChainMap<string> = {
   [ChainId.GOERLI]: '0xEfF92A263d31888d860bD50809A8D171709b7b1c',
   [ChainId.BSC]: '0x10ED43C718714eb63d5aA57B78B54704E256024E',
   [ChainId.BSC_TESTNET]: '0xD99D1c33F9fC3444f8101754aBC46c52416550D1',
-  [ChainId.CORE]: '0x6B9e34b56504B33468dACbb6D37b79C1b4D3B70E'
+  [ChainId.CORE]: '0x6B9e34b56504B33468dACbb6D37b79C1b4D3B70E',
+  [ChainId.BASE_G]: '0x0b9e480696d354Fc4103f9a8D62D2d9e2672A152',
 }
 
 // used to construct intermediary pairs for trading
@@ -25,7 +26,8 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
     bscTokens.usdc,
   ],
   [ChainId.BSC_TESTNET]: [bscTestnetTokens.wbnb, bscTestnetTokens.cake, bscTestnetTokens.busd],
-  [ChainId.CORE]: [coreTokens.wcore, coreTokens.flame, coreTokens.aicore]
+  [ChainId.CORE]: [coreTokens.wcore, coreTokens.flame, coreTokens.aicore],
+  [ChainId.BASE_G]: [baseTokens.weth, baseTokens.flame]
 }
 
 /**
@@ -54,7 +56,8 @@ export const SUGGESTED_BASES: ChainTokenList = {
   [ChainId.GOERLI]: [USDC[ChainId.GOERLI], WNATIVE[ChainId.GOERLI] ],
   [ChainId.BSC]: [bscTokens.busd, bscTokens.cake, bscTokens.btcb],
   [ChainId.BSC_TESTNET]: [bscTestnetTokens.wbnb, bscTestnetTokens.cake, bscTestnetTokens.busd],
-  [ChainId.CORE]: [coreTokens.flame, coreTokens.wcore, ]
+  [ChainId.CORE]: [coreTokens.flame, coreTokens.wcore, ],
+  [ChainId.BASE_G]: [baseTokens.weth, baseTokens.flame]
 }
 
 // used to construct the list of all pairs we consider by default in the frontend
@@ -63,7 +66,8 @@ export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
   [ChainId.GOERLI]: [USDC[ChainId.GOERLI], WNATIVE[ChainId.GOERLI]],
   [ChainId.BSC]: [bscTokens.wbnb, bscTokens.dai, bscTokens.busd, bscTokens.usdt, bscTokens.cake],
   [ChainId.BSC_TESTNET]: [bscTestnetTokens.wbnb, bscTestnetTokens.cake, bscTestnetTokens.busd],
-  [ChainId.CORE]: [coreTokens.wcore, coreTokens.flame]
+  [ChainId.CORE]: [coreTokens.wcore, coreTokens.flame],
+  [ChainId.BASE_G]: [baseTokens.weth, baseTokens.flame]
 }
 
 export const PINNED_PAIRS: { readonly [chainId in ChainId]?: [Token, Token][] } = {
@@ -80,6 +84,10 @@ export const PINNED_PAIRS: { readonly [chainId in ChainId]?: [Token, Token][] } 
   [ChainId.CORE]: [
     [coreTokens.wcore, coreTokens.flame],
     [coreTokens.wcore, coreTokens.aicore]
+  ],
+  [ChainId.BASE_G]: [
+    [baseTokens.weth, baseTokens.flame],
+   
   ]
 }
 

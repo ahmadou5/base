@@ -70,6 +70,7 @@ const config: (
         {
           label: t('Farms'),
           href: '/farms',
+          supportChainIds: UNDER_CONSTRUCTION,
         },
         {
           label: t('Pools'),
@@ -96,7 +97,7 @@ const config: (
         {
           label: t('IFO'),
           href: '/ifo',
-          //supportChainIds: UNDER_CONSTRUCTION,
+          supportChainIds: UNDER_CONSTRUCTION,
           image: '/images/ifos/ifo-bunny.png',
           
         },

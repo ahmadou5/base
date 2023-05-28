@@ -10,13 +10,13 @@ import GradientLogo from '../GradientLogoSvg'
 const Stats = () => {
   const { t } = useTranslation()
   const { theme } = useTheme()
-
+  const Tvi = 0;
   const { data: tvl } = useSWRImmutable('tvl')
   const { data: txCount } = useSWRImmutable('totalTx30Days')
   const { data: addressCount } = useSWRImmutable('addressCount30Days')
   const trades = 0 // formatLocalisedCompactNumber(txCount)
   const users = formatLocalisedCompactNumber(addressCount)
-  const tvlString = tvl ? formatLocalisedCompactNumber(tvl) : '-'
+  const tvlString = Tvi ? formatLocalisedCompactNumber(Tvi) : '-'
 
   const tvlText = t('And those users are now entrusting the platform with over $%tvl% in funds.', { tvl: tvlString })
   const [entrusting, inFunds] = tvlText.split(tvlString)
@@ -37,13 +37,13 @@ const Stats = () => {
     <Flex justifyContent="center" alignItems="center" flexDirection="column">
       {/* <GradientLogo height="48px" width="48px" mb="24px" /> */}
       <Heading textAlign="center" scale="xl">
-        {t('CoreDao Community.')}
+        {t('Base Community.')}
       </Heading>
       <Heading textAlign="center" scale="xl" mb="32px">
         {t('Trust Us.')}
       </Heading>
       <Text textAlign="center" color="textSubtle">
-        {t('FlameFinance is the most Promising DeFi Protocol, on Core Chain.')}
+        {t('FlameFinance is the most Promising DeFi Protocol, on Base Chain.')}
       </Text>
       <Flex flexWrap="wrap">
         <Text display="inline" textAlign="center" color="textSubtle" mb="20px">

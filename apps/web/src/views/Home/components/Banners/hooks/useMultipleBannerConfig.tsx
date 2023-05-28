@@ -9,6 +9,7 @@ import useIsRenderCompetitionBanner from './useIsRenderCompetitionBanner'
 import useIsRenderIfoBanner from './useIsRenderIFOBanner'
 import useIsRenderTrustWalletCampaignBanner from './useIsRenderTrustWalletCampaignBanner'
 import WelcomeBanner from '../WelcomeBanner'
+import BaseBanner from '../BaseBanner'
 
 interface IBannerConfig {
   shouldRender: boolean
@@ -34,21 +35,21 @@ export const useMultipleBannerConfig = () => {
 
   return useMemo(() => {
     const NO_SHUFFLE_BANNERS: IBannerConfig[] = [
-      { shouldRender: isRenderTrustWalletCampaignBanner, banner: <TrustWalletCampaignBanner /> },
+     // { shouldRender: isRenderTrustWalletCampaignBanner, banner: <TrustWalletCampaignBanner /> },
       { shouldRender: true, banner: <WelcomeBanner /> },
-      { shouldRender: true, banner: <AptosBanner /> },
+      { shouldRender: true, banner: <BaseBanner /> },
       
     ]
 
     const SHUFFLE_BANNERS: IBannerConfig[] = [
-      {
-        shouldRender: isRenderCompetitionBanner,
-        banner: <CompetitionBanner />,
-      },
-      {
-        shouldRender: true,
-        banner: <PerpetualBanner />,
-      },
+     // {
+      //  shouldRender: isRenderCompetitionBanner,
+   //     banner: <CompetitionBanner />,
+   //   },
+   //   {
+    //    shouldRender: true,
+   //     banner: <PerpetualBanner />,
+  //    },
     ]
     return [...NO_SHUFFLE_BANNERS, ...shuffle(SHUFFLE_BANNERS)]
       .filter((bannerConfig: IBannerConfig) => bannerConfig.shouldRender)

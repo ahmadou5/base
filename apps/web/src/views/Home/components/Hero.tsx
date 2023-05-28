@@ -121,10 +121,10 @@ const Hero = () => {
       >
         <Flex flex="1" flexDirection="column">
           <Heading scale="xxl" color="secondary" mb="24px">
-            {t('#1 Dex On Core Chain Ecosystem FlameFinance.')}
+            {t('A Multi Chain all In One Dex FlameFinance.')}
           </Heading>
           <Heading scale="md" mb="24px">
-            {t('The Most Promising Decentralised Protocol On Core Chain, FlameFinance Uses and Utilize The Secured, Scalable and Decentralised Habits of Core Blockchain to build the most trusted, secured, fast and gas optimized Decentralised open and safe Marketplace for Core Chain Community.')}
+            {t('The Most Secured, Scalable and Decentralised Protocol On the MultiChain, FlameFinance Uses and Utilize The Security, Scalability, Speed and Decentralisation of Blockchain to build the most trusted, secured, fast,  gas optimized Decentralised safe Market for Community.')}
           </Heading>
           <Flex>
             {!account && <ConnectWalletButton mr="8px" />}

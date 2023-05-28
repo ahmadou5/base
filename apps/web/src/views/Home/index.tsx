@@ -117,7 +117,7 @@ const Home: React.FC<React.PropsWithChildren> = () => {
         hasCurvedDivider={false}
       >
         <SalesSection {...cakeSectionData(t)} />
-        <CakeDataRow />
+        
       </PageSection>
       
     </>

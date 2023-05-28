@@ -222,6 +222,7 @@ const StakeAction: React.FC<React.PropsWithChildren<FarmCardActionsProps>> = ({
       return onApprove()
     })
     if (receipt?.status) {
+      console.log(receipt.status)
       toastSuccess(t('Contract Enabled'), <ToastDescriptionWithTx txHash={receipt.transactionHash} />)
       onDone()
     }

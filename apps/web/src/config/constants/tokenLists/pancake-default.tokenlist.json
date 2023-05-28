@@ -19,6 +19,47 @@
       "logoURI": "https://tokens.pancakeswap.finance/images/symbol/bnb.png"
     },
     {
+      "name": "Wrapped BTC",
+      "symbol": "WBTC",
+      "address": "0xeA96c24CDeF2FB472b86eB51414e8D7cf2cA3302",
+      "chainId": 84531,
+      "decimals": 18,
+      "logoURI": "https://dackieswap.xyz/images/84531/tokens/0xeA96c24CDeF2FB472b86eB51414e8D7cf2cA3302.png"
+    },
+    {
+      "name": "DackieSwap Token",
+      "symbol": "Dackie",
+      "address": "0xcf8E7e6b26F407dEE615fc4Db18Bf829E7Aa8C09",
+      "chainId": 84531,
+      "decimals": 18,
+      "logoURI": "https://dackieswap.xyz/images/84531/tokens/0xcf8E7e6b26F407dEE615fc4Db18Bf829E7Aa8C09.png"
+    },
+    {
+      "name": "FlameFinance Token",
+      "symbol": "Flame",
+      "address": "0x6B9e34b56504B33468dACbb6D37b79C1b4D3B70E",
+      "chainId": 84531,
+      "decimals": 18,
+      "logoURI": "https://flamefinance.org/images/coreTokens/flame.png"
+    },
+    {
+      "name": "USDT Base Goerli",
+      "symbol": "USDT",
+      "address": "0x3e8B7c72f4a9f4C8ec375c11F44FB84242c3893F",
+      "chainId": 84531,
+      "decimals": 18,
+      "logoURI": "https://dackieswap.xyz/images/84531/tokens/0x3e8B7c72f4a9f4C8ec375c11F44FB84242c3893F.png"
+    },
+    {
+      "name": "USDC Base Goerli",
+      "symbol": "USDC",
+      "address": "0x2e9F75DF8839ff192Da27e977CD154FD1EAE03cf",
+      "chainId": 84531,
+      "decimals": 18,
+      "logoURI": "https://dackieswap.xyz/images/84531/tokens/0x2e9F75DF8839ff192Da27e977CD154FD1EAE03cf.png"
+    },
+  
+    {
       "name": "Wrapped CORE",
       "symbol": "WCORE",
       "address": "0x191E94fa59739e188dcE837F7f6978d84727AD01",

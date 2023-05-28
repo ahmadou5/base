@@ -7,6 +7,7 @@ export enum ChainId {
   CORE = 1116,
   BSC = 56,
   BSC_TESTNET = 97,
+  BASE_G = 84531,
 }
 
 export const ZERO_PERCENT = new Percent('0')
@@ -18,22 +19,27 @@ const FACTORY_ADDRESS_ETH = '0x1097053Fd2ea711dad45caCcc45EfF7548fCB362'
 
 const FACTORY_ADDRESS_CORE = '0x967e19c9a147d7edb5cc3bbdd91be77a15d237e2'
 
+const FACTORY_ADDRESS_BASE = '0xB289e7b820F9b85e28156232085da7307795934f'
+
 export const FACTORY_ADDRESS_MAP: Record<number, string> = {
   [ChainId.ETHEREUM]: FACTORY_ADDRESS_ETH,
   [ChainId.GOERLI]: FACTORY_ADDRESS_ETH,
   [ChainId.BSC]: FACTORY_ADDRESS,
   [ChainId.CORE] : FACTORY_ADDRESS_CORE,
   [ChainId.BSC_TESTNET]: '0x6725f303b657a9451d8ba641348b6761a6cc7a17',
+  [ChainId.BASE_G]: FACTORY_ADDRESS_BASE
 }
 export const INIT_CODE_HASH = '0x00fb7f630766e6a796048ea87d01acd3068e8ff67d078148a3fa3f4a84f69bd5'
 const INIT_CODE_HASH_CORE = '0xa43381778131c9eede54628e4d34241a3dbb6200aa569ed3810fe8b7bdf07f83'
 const INIT_CODE_HASH_ETH = '0x57224589c67f3f30a6b0d7a1b54cf3153ab84563bc609ef41dfb34f8b2974d2d'
+const INIT_CODE_HASH_BASE = '0xa43381778131c9eede54628e4d34241a3dbb6200aa569ed3810fe8b7bdf07f83'
 export const INIT_CODE_HASH_MAP: Record<number, string> = {
   [ChainId.ETHEREUM]: INIT_CODE_HASH_ETH,
   [ChainId.GOERLI]: INIT_CODE_HASH_ETH,
   [ChainId.BSC]: INIT_CODE_HASH,
   [ChainId.BSC_TESTNET]: '0xd0d4c4cd0848c93cb4fd1f498d7013ee6bfb25783ea21593d5834f5d250ece66',
   [ChainId.CORE]: INIT_CODE_HASH_CORE,
+  [ChainId.BASE_G]: INIT_CODE_HASH_BASE
   
 }
 
@@ -54,6 +60,17 @@ export const WETH9 = {
     'Wrapped Ether',
     'https://weth.io'
   ),
+
+  [ChainId.BASE_G]: new ERC20Token(
+    ChainId.BASE_G,
+    '0x4200000000000000000000000000000000000006',
+    18,
+    'WETH',
+    'Wrapped Ether',
+    'https://weth.io'
+  ),
+
+  
 }
 
 export const WCORE = {
@@ -100,7 +117,8 @@ export const WNATIVE: Record<number, ERC20Token> = {
   [ChainId.GOERLI]: WETH9[ChainId.GOERLI],
   [ChainId.BSC]: WBNB[ChainId.BSC],
   [ChainId.BSC_TESTNET]: WBNB[ChainId.BSC_TESTNET],
-  [ChainId.CORE]: WCORE[ChainId.CORE]
+  [ChainId.CORE]: WCORE[ChainId.CORE],
+  [ChainId.BASE_G]: WETH9[ChainId.BASE_G]
 }
 
 export const NATIVE: Record<
@@ -119,6 +137,7 @@ export const NATIVE: Record<
     decimals: 18,
   },
   [ChainId.CORE]: {name: 'Core', symbol: 'CORE', decimals: 18 },
+  [ChainId.BASE_G]: { name: 'Ether', symbol: 'ETH', decimals: 18 },
   [ChainId.BSC_TESTNET]: {
     name: 'Binance Chain Native Token',
     symbol: 'tBNB',

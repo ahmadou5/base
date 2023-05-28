@@ -1,7 +1,7 @@
 export const BSC_RPC_URLS = [
-  'https://scan.coredao.org'
+  'https://goerli.base.org'
 ]
 
 export const BSC_TESTNET_RPC_URLS = [
-  'https://scan.coredao.org'
+  'https://goerli.base.org'
 ]

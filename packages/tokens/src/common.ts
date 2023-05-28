@@ -18,6 +18,15 @@ export const CAKE_TESTNET = new ERC20Token(
   'https://pancakeswap.finance/',
 )
 
+export const FLAMEB = new ERC20Token(
+  ChainId.BASE_G,
+  '0x6B9e34b56504B33468dACbb6D37b79C1b4D3B70E',
+  18,
+  'FLAME',
+  'FlameFinance Token',
+  'https://flamefinance.org'
+)
+
 export const FLAME = new ERC20Token(
   ChainId.CORE,
   '0xe3bacaa390bb3e80a497592e420c5c5ddcb94a3a',
@@ -53,6 +62,14 @@ export const USDC_ETH = new ERC20Token(
   'USD Coin',
 )
 
+export const USDC_BASE = new ERC20Token(
+  ChainId.BASE_G,
+  '0x2e9F75DF8839ff192Da27e977CD154FD1EAE03cf',
+  6,
+  'USDC',
+  'USD Coin',
+)
+
 export const USDC_GOERLI = new ERC20Token(
   ChainId.GOERLI,
   '0x07865c6E87B9F70255377e024ace6630C1Eaa37F',
@@ -64,6 +81,15 @@ export const USDC_GOERLI = new ERC20Token(
 export const USDT_BSC = new ERC20Token(
   ChainId.BSC,
   '0x55d398326f99059fF775485246999027B3197955',
+  18,
+  'USDT',
+  'Tether USD',
+  'https://tether.to/',
+)
+
+export const USDT_BASE = new ERC20Token(
+  ChainId.BASE_G,
+  '0x3e8B7c72f4a9f4C8ec375c11F44FB84242c3893F',
   18,
   'USDT',
   'Tether USD',
@@ -107,8 +133,8 @@ export const BUSD_ETH = new ERC20Token(
 )
 
 export const BUSD_GOERLI = new ERC20Token(
-  ChainId.GOERLI,
-  '0xb809b9B2dc5e93CB863176Ea2D565425B03c0540',
+  ChainId.BASE_G,
+  '0x3e8B7c72f4a9f4C8ec375c11F44FB84242c3893F',
   18,
   'BUSD',
   'Binance USD',
@@ -117,16 +143,19 @@ export const BUSD_GOERLI = new ERC20Token(
 
 
 
+
 export const CAKE = {
   [ChainId.BSC]: CAKE_MAINNET,
   [ChainId.BSC_TESTNET]: CAKE_TESTNET,
   [ChainId.CORE]: FLAME,
+  [ChainId.BASE_G]: FLAMEB,
 }
 
 export const BUSD = {
   [ChainId.BSC]: BUSD_BSC,
   [ChainId.CORE]: BUSD_ETH,
-  [ChainId.BSC_TESTNET]: BUSD_TESTNET
+  [ChainId.BSC_TESTNET]: BUSD_TESTNET,
+  [ChainId.BASE_G]: BUSD_GOERLI
 
 }
 export const USDC = {
@@ -134,11 +163,13 @@ export const USDC = {
   [ChainId.BSC_TESTNET]: USDC_TESTNET,
   [ChainId.ETHEREUM]: USDC_ETH,
   [ChainId.GOERLI]: USDC_GOERLI,
+  [ChainId.BASE_G]: USDC_BASE,
 }
 
 export const USDT = {
   [ChainId.BSC]: USDT_BSC,
   [ChainId.ETHEREUM]: USDT_ETH,
+  [ChainId.BASE_G]: USDT_BASE,
 }
 
 export const WBTC_ETH = new ERC20Token(

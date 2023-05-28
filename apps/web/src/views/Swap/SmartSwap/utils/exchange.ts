@@ -9,6 +9,7 @@ import { PancakeSwapSmartRouter } from 'config/abi/types/PancakeSwapSmartRouter'
 import { useContract } from 'hooks/useContract'
 import { useActiveChainId } from 'hooks/useActiveChainId'
 import { ChainMap } from 'config/constants/types'
+import { CHAIN_ID } from '@gelatonetwork/limit-orders-lib/dist/constants'
 
 export const SMART_ROUTER_ADDRESS: ChainMap<string> = {
   [ChainId.ETHEREUM]: '',
@@ -16,6 +17,7 @@ export const SMART_ROUTER_ADDRESS: ChainMap<string> = {
   [ChainId.BSC]: '0x64D74e1EAAe3176744b5767b93B7Bee39Cf7898F',
   [ChainId.BSC_TESTNET]: '0xCF457465fC0E98a50Bc3E1b3DDAAF1373622f059',
   [ChainId.CORE]: '',
+  [ChainId.BASE_G]: ''
 }
 
 export function useSmartRouterContract() {

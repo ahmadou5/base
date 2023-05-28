@@ -30,6 +30,11 @@ const evmNativeStableLpMap = {
     wNative: 'WBNB',
     stable: 'BUSD',
   },
+  [ChainId.BASE_G]: {
+    address: '0x4200000000000000000000000000000000000006',
+    wNative: 'WETH',
+    stable: 'USDC',
+  },
 }
 
 export const getTokenAmount = (balance: FixedNumber, decimals: number) => {
@@ -187,7 +192,7 @@ export const fetchMasterChefData = async (
     const masterChefMultiCallResult = await multicallv2({
       abi: masterChefV2Abi,
       calls: masterChefAggregatedCalls,
-      chainId: isTestnet ? ChainId.BSC_TESTNET : ChainId.BSC,
+      chainId: isTestnet ? ChainId.BSC_TESTNET : ChainId.BASE_G,
     })
 
     let masterChefChunkedResultCounter = 0
@@ -238,7 +243,7 @@ export const fetchMasterChefV2Data = async ({
           params: [true],
         },
       ],
-      chainId: isTestnet ? ChainId.BSC_TESTNET : ChainId.BSC,
+      chainId: isTestnet ? ChainId.BSC_TESTNET : ChainId.BASE_G,
     })
 
     return {
